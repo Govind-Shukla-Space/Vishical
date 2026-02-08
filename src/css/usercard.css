@@ -1,0 +1,125 @@
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Glass hover glow */
+  .user-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Animated background shimmer */
+  .user-card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: rotate(25deg);
+    animation: shine 6s linear infinite;
+  }
+  
+  @keyframes shine {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+  }
+  
+  /* Avatar Circle */
+  .user-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #9333ea);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  /* User Info */
+  .user-info {
+    flex: 1;
+  }
+  
+  .user-info h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .user-info p {
+    margin: 2px 0 8px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  /* Role Badge */
+  .role-badge {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  
+  .role-badge.admin {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  .role-badge.user {
+    background: #dbeafe;
+    color: #1e3a8a;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 18px rgba(220, 38, 38, 0.4);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .user-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .delete-btn {
+      width: 100%;
+    }
+  }
+  

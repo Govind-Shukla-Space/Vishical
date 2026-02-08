@@ -1,0 +1,53 @@
+/* 🌍 UNIVERSAL RESPONSIVE FIXES */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, textarea {
+  max-width: 100%;
+}
+
+/* 📱 Mobile layout stack */
+@media (max-width: 768px) {
+  .admin-layout,
+  .user-dashboard,
+  .dashboard-content,
+  .products-panel,
+  .shop-grid,
+  .card-container,
+  .product-list {
+    width: 100%;
+    padding: 10px !important;
+  }
+
+  /* Force grid to single column */
+  .shop-grid,
+  .card-container,
+  .product-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Navbar stack */
+  .dashboard-navbar,
+  .admin-sidebar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
