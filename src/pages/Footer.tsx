@@ -1,7 +1,7 @@
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import "../css/Footer.css";
 
-const Footer = () => {  
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <div className="brand">
-              <div className="brand-logo">L</div>
-              <span className="brand-name">Luxora</span>
+              <div className="brand-logo">V</div>
+              <span className="brand-name">Vishical</span>
             </div>
             <p className="brand-text">
               Timeless Jewelry, Crafted with Elegance
@@ -34,7 +34,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Mail size={16} />
-                <span>info@luxora.com</span>
+                <span>info@vishical.com</span>
               </li>
               <li>
                 <Phone size={16} />
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          © 2026 Luxora. All rights reserved.
+          © 2026 Vishical. All rights reserved.
         </div>
       </div>
     </footer>

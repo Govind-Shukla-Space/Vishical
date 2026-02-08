@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { shopsignup } from '../api/auth.api';
 import "../css/shopsignup.css";
@@ -24,9 +24,7 @@ export const ShopSignUP = () => {
         setError("");
         setLoading(true);
         try {
-            const res = await shopsignup(form);
-            console.log(res.data);
-            // success if no error thrown
+            await shopsignup(form);
             navigate("/");
         } catch (err: any) {
             setError(err.message || "Shop signup failed");
@@ -40,7 +38,7 @@ export const ShopSignUP = () => {
 
             <div className="shop-signup-left">
                 <div>
-                    <h1>LOREX SELLER</h1>
+                    <h1>Vishical SELLER</h1>
                     <p>Start selling your jewelry to thousands of customers</p>
                 </div>
             </div>

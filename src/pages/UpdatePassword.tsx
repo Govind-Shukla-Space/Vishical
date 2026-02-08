@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../css/updatepassword.css";
+import { logout } from '../api/auth.api';
+
 type Props = {
   onUpdatePassword: (data: {
     email: string;
@@ -31,11 +33,10 @@ export const UpdatePassword = ({ onUpdatePassword }: Props) => {
     setSuccess("");
     try {
       const res = await onUpdatePassword(form);
-      console.log(res?.data.message);
       if (res?.data.message === "PASSWORD_UPDATED_SUCCESSFULLY") {
         alert("Password updated successfully. Please log in again.");
         setSuccess("Password updated successfully. Please log in again.");
-        localStorage.removeItem("token");
+        await logout(); // Call backend to clear cookies
       }
       // setError( "Password update failed");
     } catch (err: any) {

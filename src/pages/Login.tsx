@@ -12,7 +12,7 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -24,10 +24,6 @@ export default function Login() {
     try {
       console.log(form);
       const res = await login(form);
-      console.log(res.data.message)
-      // if (res.data.message !== "INVALID_CREDENTIALS") // success if no error thrown
-      //   localStorage.setItem("token", res.data.token);
-      console.log(res.data);
       if (res.data.role === "ADMIN") {
         navigate("/admin");     // or dashboard
       }
@@ -37,8 +33,11 @@ export default function Login() {
       } else if (res.data.role === "USER") {
         navigate("/userdashboard");
       }
-      else
-        navigate("/");
+      else{
+        alert("Unknown !!! Please contact support.");
+        setForm({ email: "", password: "" });
+        navigate("/login");
+      }
     } catch (err: any) {
       setError(err.message || "Invalid username or password");
     } finally {
@@ -50,7 +49,7 @@ export default function Login() {
 
     <div className="login-page">
       <div className="login-brand">
-        <div className="brand-text">LOREX</div>
+        <div className="brand-text">Vishical</div>
       </div>
 
       <div className="login-box">

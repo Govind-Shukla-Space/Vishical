@@ -26,15 +26,13 @@ export const ShopDashboard = () => {
 
   }, [section, shopId]);
 
-  console.log("Shop ID from localStorage:", shopId); // Debugging line
-  // Fetch products when entering the "products" section
   const handleLogout = async () => {
     try {
-      await logout(); // ✅ Call backend to clear cookies
+      await logout(); // Call backend to clear cookies
       localStorage.removeItem('shopId');
       navigate('/login');
     } catch (error) {
-      console.error('Logout failed:', error);
+      alert('Logout failed:');
       localStorage.removeItem('shopId');
       navigate('/login');
     }
@@ -46,11 +44,10 @@ export const ShopDashboard = () => {
       {/* SIDEBAR */}
       <aside className="shop-sidebar">
         <div className="shop-logo-section">
-          <h2 className="logo">LOREX</h2>
+          <h2 className="logo">Vishical</h2>
         </div>
         <nav className="shop-nav">
           <button onClick={() => setSection("dashboard")}>Dashboard</button>
-          {/* <button onClick={() => setSection("shops")}>Approved Shops</button> */}
           <button onClick={() => setSection("products")}>Products</button>
           <button onClick={() => setSection("updatepassword")}>Update Password</button>
         </nav>

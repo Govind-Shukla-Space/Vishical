@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const api = axios.create({
   baseURL: "http://localhost:8080", // change if needed
-  // baseURL: "https://4vwh1sh3-1234.inc1.devtunnels.ms/",
-
   headers: {
     "Content-Type": "application/json",
   },
@@ -20,30 +18,17 @@ api.interceptors.response.use(
       error.message ||
       "Something went wrong";
     if (error.response?.status === 401 || error.response?.status === 403) {
-      // localStorage.removeItem("token");
-      // if(localStorage.getItem("shopId")){
-      //   localStorage.removeItem("shopId");
-      // }
       window.location.href = "/login";
       console.log(error.response);
     }
     return Promise.reject(new Error(message));
   }
 );
-// Attach token automatically
-
-// api.interceptors.request.use((config) => {
-//   const token = localStorage.getItem("token");
-//   if (token && token !== "null" && token !== "undefined") {
-//     config.headers.Authorization = `Bearer ${token}`;
+// export function getCookie(name: string): string | null {
+//   const value = `; ${document.cookie}`;
+//   const parts = value.split(`; ${name}=`);
+//   if (parts.length === 2) {
+//     return parts.pop()?.split(';').shift() || null;
 //   }
-//   return config;
-// });
-export function getCookie(name: string): string | null {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) {
-    return parts.pop()?.split(';').shift() || null;
-  }
-  return null;
-}
+//   return null;
+// }

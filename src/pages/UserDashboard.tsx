@@ -14,10 +14,9 @@ export const UserDashboard = () => {
   
   const handleLogout = async () => {
     try {
-      await logout(); // ✅ Call backend to clear cookies
+      await logout(); // Call backend to clear cookies
       navigate('/login');
     } catch (error) {
-      console.error('Logout failed:', error);
       navigate('/login');
     }
   };

@@ -29,18 +29,16 @@ export const AddProductForm = ({ onAddProduct }: Props) => {
       setError("Please select an image");
       return;
     }
-
     setLoading(true);
     setError("");
     setSuccess("");
 
     try {
-      const res = await onAddProduct(form, file); // Call the prop function
+      await onAddProduct(form, file); // Call the prop function
       setSuccess("Product added successfully!");
       // Reset form
       setForm({ name: "", description: "", price: 0 });
       setFile(null);
-      console.log(res);
     } catch (err: any) {
       setError(err.message || "Failed to add product");
     } finally {

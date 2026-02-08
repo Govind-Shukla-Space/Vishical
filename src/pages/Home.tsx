@@ -1,6 +1,6 @@
-import Footer from './Footer';
 import { Link } from 'react-router-dom';
 import "../css/Home.css";
+import Footer from './Footer';
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="container nav-container">
-          <h2 className="logo">LOREX</h2>
+          <h2 className="logo">Vishical</h2>
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/login">Login</Link></li>
@@ -24,7 +24,7 @@ export default function Home() {
           <h1>Welcome to Our Platform</h1>
           <p>Connecting shops, users, and admins seamlessly.</p>
           <Link to="/signup"><button>Get Started</button></Link>
-          
+
         </div>
       </section>
 
@@ -43,8 +43,8 @@ export default function Home() {
           <p>Admins can oversee everything and ensure smooth operations.</p>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
-  
+
 }

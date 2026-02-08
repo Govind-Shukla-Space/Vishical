@@ -23,45 +23,44 @@ export default function Signup() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    try{
-      const res=await authsign(form);
-      console.log(res.data); // success if no error thrown
+    try {
+      await authsign(form);
       navigate("/");
-    }catch(err:any){
+    } catch (err: any) {
       setError(err.message || "Signup failed");
-    }finally{
+    } finally {
       setLoading(false);
     }
-    
+
   };
 
   return (
     <div className="signup-page">
 
-  <div className="signup-bg-text">LOREX • LOREX • LOREX</div>
+      <div className="signup-bg-text">Vishical • Vishical • Vishical</div>
 
-  <div className="signup-card">
-    <h2>Create Account</h2>
+      <div className="signup-card">
+        <h2>Create Account</h2>
 
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
-      <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
-      <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
-      <input type="text" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} required />
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
+          <input type="text" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} required />
 
-      {error && <p className="signup-error">{error}</p>}
+          {error && <p className="signup-error">{error}</p>}
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Creating account..." : "Create Account"}
-      </button>
-    </form>
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating account..." : "Create Account"}
+          </button>
+        </form>
 
-    <div className="signup-login">
-      Already have an account? <Link to="/login">Login</Link>
+        <div className="signup-login">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-</div>
 
   );
 }

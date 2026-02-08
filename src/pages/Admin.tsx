@@ -1,30 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../api/auth.api';
 import ProductCard from '../components/ProductCard';
 import "../css/admin.css";
-import { useadmin } from '../service/useadmin';
 import type { Product } from '../model/product';
+import { useadmin } from '../service/useadmin';
 import PendingShopsPage from './PendingShopsPage';
 import ShopPage from './ShopPage';
 import { UpdatePassword } from './UpdatePassword';
 import UserPage from './UserPage';
-import { logout } from '../api/auth.api';
 
 export const Admin = () => {
     const [activeSection, setActiveSection] = useState('dashboard');
     const adminData = useadmin();
     const navigate = useNavigate();
-
-    // const handleLogout = () => {
-    //     localStorage.removeItem('token');
-    //     navigate('/login');
-    // };
     const handleLogout = async () => {
         try {
-            await logout(); // ✅ Call backend to clear cookies
+            await logout(); // Call backend to clear cookies
             navigate('/login');
         } catch (error) {
-            console.error('Logout failed:', error);
+            alert('Logout failed');
             navigate('/login');
         }
     };
@@ -33,7 +28,7 @@ export const Admin = () => {
             <aside className="admin-sidebar">
                 <div className="admin-logo-section">
                     <div className="admin-logo-icon">L</div>
-                    <h2 className="admin-logo-text">LOREX</h2>
+                    <h2 className="admin-logo-text">Vishical</h2>
                     <p className="admin-subtitle">Admin Panel</p>
                 </div>
 

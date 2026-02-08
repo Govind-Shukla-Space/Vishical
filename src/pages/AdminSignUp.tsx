@@ -21,13 +21,9 @@ export const AdminSignUp = () => {
         setError("");
         setLoading(true);
         try {
-            console.log(form);
-            const res = await adminsignup(form);
-            console.log(res.data);
-            console.log(res.data); // success if no error thrown
+            await adminsignup(form);// success if no error thrown
             navigate("/");
         } catch (err: any) {
-            console.log(err.message);
             setError(err.message || "Admin signup failed");
         }
         finally {
