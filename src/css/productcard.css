@@ -17,7 +17,7 @@
 }
 
 .product-card {
-  background: linear-gradient(135deg, var(--bg-card), rgba(26, 26, 46, 0.8));
+  background: linear-gradient(135deg, var(--bg-card), rgba(188, 188, 209, 0.8));
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -72,7 +72,7 @@
   width: 100%;
   padding-bottom: 100%;
   /* 1:1 Aspect Ratio */
-  background: linear-gradient(135deg, rgba(15, 15, 30, 0.8), rgba(26, 26, 46, 0.6));
+  background: linear-gradient(135deg, rgba(116, 116, 210, 0.8), rgba(26, 26, 46, 0.6));
   overflow: hidden;
 }
 
